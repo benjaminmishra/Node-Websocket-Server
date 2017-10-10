@@ -18,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/benjaminmishra/Node-Websocket-Server/issues"
   },
-  "homepage": "https://github.com/benjaminmishra/Node-Websocket-Server#readme"
+  "homepage": "https://github.com/benjaminmishra/Node-Websocket-Server#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "expressjs": "^1.0.1",
+    "ws": "^3.2.0"
+  }
 }
