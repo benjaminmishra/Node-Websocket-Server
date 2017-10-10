@@ -1,0 +1,22 @@
+{
+  "name": "websocket-server",
+  "version": "1.0.0",
+  "description": "Simple websocket server for AngularJs component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benjaminmishra/Node-Websocket-Server.git"
+  },
+  "keywords": [
+    "websocket"
+  ],
+  "author": "Benjamin Moloise Mishra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/benjaminmishra/Node-Websocket-Server/issues"
+  },
+  "homepage": "https://github.com/benjaminmishra/Node-Websocket-Server#readme"
+}
