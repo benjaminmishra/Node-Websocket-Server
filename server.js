@@ -24,6 +24,16 @@ wss.on('connection', function connection(ws, req) {
   ws.send('something');
 });
 
+// Broadcast to all.
+wss.broadcast = function broadcast() {
+  wss.clients.forEach(function each(client) {
+    if (client.readyState === WebSocket.OPEN) {
+      client.send('This is test');
+    }
+  });
+};
+
+
 server.listen(8080, function listening() {
   console.log('Listening on %d', server.address().port);
 });

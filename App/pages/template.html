@@ -1,0 +1,58 @@
+<div>
+    <ul class="nav navbar-top-links navbar-right">
+        <li class="dropdown">
+
+            <button class="btn dropdown-toggle" id="dlDropDown" data-toggle="dropdown" data-bind="enable: !noResults()">
+                <i class="fa fa-tasks fa-fw"></i>
+            </button>
+
+
+            <ul class="dropdown-menu dropdown-messages">
+                <li>
+                    <div class="top-divider"></div>
+                    <span class="col-xs-12 date-heading"><h4>Monday Sept 12, 2016</h3></span>
+
+                    <span class="col-xs-12 text-center pad-tb">
+                        <span class="col-xs-4 brd-h no-pad text-right"><h2 class="no-margin"><a class="no-pad">56</a></h2></span>
+                        <span class="col-xs-6 text-left"><h5>Assigned Tasks</h5></span>
+                    </span>
+                </li>
+
+                <li>
+                    <span class="col-xs-12 text-center pad-tb">
+                        <span class="col-xs-4 brd-h no-pad text-right"><h2 class="no-margin"><a class="no-pad">4</a></h2></span>
+                        <span class="col-xs-6 text-left"><h5>Reminder</h5></span>
+                    </span>
+                </li>
+
+                <li>
+                    <span class="col-xs-12 text-center pad-tb">
+                        <span class="col-xs-4 brd-h no-pad text-right"><h2 class="no-margin"><a class="no-pad">20</a></h2></span>
+                        <span class="col-xs-6 text-left"><h5>Notifications</h5></span>
+                    </span>
+                </li>
+
+                <li>
+                    <span class="col-xs-12 text-center">
+                        <a>
+                            <span>Read All Messages</span>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </span>
+                </li>
+
+                <li ng-repeat="content in eventInfo">
+                    <div class="col-xs-12 pad-tb border-top">
+                        <strong>John Smith</strong>
+                        <span class="pull-right text-muted">
+                            <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        </span>
+                        <div>{{content.text}}</div>
+                    </div>
+                </li>
+
+            </ul>
+            <!-- /.dropdown-messages -->
+        </li>
+    </ul>
+</div>
