@@ -27,12 +27,13 @@ app.controller('MyController', function($scope, MyData) {
 
 app.factory('MyData', function($websocket) {
   // Open a WebSocket connection
-  var dataStream = $websocket('ws://localhost:80');
+  var dataStream = $websocket('ws://localhost:8080');
 
   var collection = [];
 
   dataStream.onMessage(function(message) {
-    collection.push(JSON.parse(message.data));
+    console.log(message);
+    collection.push(message);
   });
 
   var methods = {

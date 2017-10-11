@@ -1,39 +1,37 @@
-const express = require('express');
-const http = require('http');
-const url = require('url');
 const WebSocket = require('ws');
 
-const app = express();
-
-app.use(function (req, res) {
-  res.send({ msg: "hello" });
-});
-
-const server = http.createServer(app);
-const wss = new WebSocket.Server({ server });
-
-wss.on('connection', function connection(ws, req) {
-  const location = url.parse(req.url, true);
-  // You might use location.query.access_token to authenticate or share sessions
-  // or req.headers.cookie (see http://stackoverflow.com/a/16395220/151312)
-
-  ws.on('message', function incoming(message) {
-    console.log('received: %s', message);
-  });
-
-  ws.send('something');
-});
+const wss = new WebSocket.Server({ port: 8080 });
 
 // Broadcast to all.
-wss.broadcast = function broadcast() {
-  wss.clients.forEach(function each(client) {
-    if (client.readyState === WebSocket.OPEN) {
-      client.send('This is test');
-    }
-  });
-};
+/*setInterval(function(){
+  wss.broadcast = function broadcast() {
+    wss.clients.forEach(function each(client) {
+      if (client.readyState === WebSocket.OPEN) {
+        console.log('boradcasting');
+        client.send('test broadcast');
+      }
+    });
+   };
+},1000);
+*/
 
+wss.on('connection', function connection(ws) {
+  console.log('connection established');
+  setInterval(function(){
+    wss.clients.forEach(function each(client) {
+      if (client !== ws && client.readyState === WebSocket.OPEN) {
+        client.send('hello from server');
+      }
+    });
+    console.log('sending');
+  },1000);
+  
+ ws.on('message', function incoming(data) {
+   // Broadcast to everyone else.
+   console.log('received');
+ });
+});
 
-server.listen(8080, function listening() {
-  console.log('Listening on %d', server.address().port);
+wss.on('close',function(ws){
+  console.log('connection closed');
 });
